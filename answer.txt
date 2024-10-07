@@ -1,0 +1,16 @@
+#!/bin/sh
+export USE_EFI=1 
+export BOOT_SIZE=32 
+export BOOTSIZE=32 
+export BOOTFS=vfat 
+export SWAP_SIZE=0 
+export DISKLABEL=gpt 
+export ROOTFS=ext4 
+export KEYMAPOPTS="us us" 
+export TIMEZONEOPTS="-z Asia/Kolkata" 
+export PROXYOPTS="none" 
+export SSHDOPTS="-c openssh" 
+export NTPOPTS="-c chrony" 
+export HOSTNAMEOPTS="-n raspi-alp" 
+printenv
+setup-alpine
