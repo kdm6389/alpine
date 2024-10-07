@@ -1,2 +1,69 @@
 https://www.alpinelinux.org/
 
+
+DEFAULT_DISK=
+
+
+BOOT_SIZE
+Size of the boot partition in MB; defaults to 100. Only used if -m sys is specified or interactively selected.
+
+SWAP_SIZE
+Size of the swap volume in MB; set to 0 to disable swap. If not specified, will default to twice RAM, up to 4096, but won't be more than 1/3 the size of the smallest disk, and if less than 64 will just be 0. Only used if -m sys is specified or interactively selected.
+
+
+ROOTFS
+Filesystem to use for the / volume; defaults to ext4. Only used if -m sys is specified or interactively selected. Supported filesystems are: ext2 ext3 ext4 btrfs xfs.
+
+
+BOOTFS
+Filesystem to use for the /boot volume; defaults to ext4. Only used if -m sys is specified or interactively selected. Supported filesystems are: ext2 ext3 ext4 btrfs xfs.
+VARFS
+
+Filesystem to use for the /var volume; defaults to ext4. Only used if -m data is specified or interactively selected. Supported filesystems are: ext2 ext3 ext4 btrfs xfs.
+
+SYSROOT
+Mountpoint to use when creating volumes and doing traditional disk install (-m sys). Defaults to /mnt.
+
+MBR
+Path of MBR binary code, defaults to /usr/share/syslinux/mbr.bin.
+
+BOOTLOADER
+Bootloader to use, defaults to syslinux. Supported bootloaders are: grub syslinux zipl.
+
+
+DISKLABEL
+Disklabel to use, defaults to dos. Supported disklabels are: dos gpt eckd.
+
+
+
+BOOTFS
+The filesystem to use on /boot, defaults to ext4, also allows ext2, ext3, (flat) btrfs, xfs and vfat (required on UEFI).
+
+BOOTLOADER
+Bootloader to use. Defaults to syslinux, but also allows using grub, unless UEFI is used, in which case grub is required.
+
+BOOTSIZE=
+The size of /boot.
+
+DISKLABEL
+The type of partition table to use. Defaults to dos, but also allows using gpt, unless UEFI is used, in which case gpt is required.
+
+ROOTFS
+The filesystem to use on /, defaults to ext4, also allows ext2, ext3, (flat) btrfs and xfs.
+
+USE_EFI
+Enable this to force using UEFI.
+
+
+
+
+
+
+
+
+
+
+default for my setup 
+
+My Use case:
+USE_EFI=1 BOOT_SIZE=32 BOOTSIZE=32 BOOTFS=vfat SWAP_SIZE=0 DISKLABEL=gpt ROOTFS=ext4 KEYMAPOPTS="us us" TIMEZONEOPTS="-z Asia/Kolkata" PROXYOPTS="none" SSHDOPTS="-c openssh" NTPOPTS="-c chrony" HOSTNAMEOPTS="-n raspi-alp" setup-alpine
