@@ -12,5 +12,7 @@ export PROXYOPTS="none"
 export SSHDOPTS="-c openssh" 
 export NTPOPTS="-c chrony" 
 export HOSTNAMEOPTS="-n raspi-alp" 
-printenv
-setup-alpine
+
+#done setting varriable 
+printenv #print variable
+setup-alpine #statrt setup
